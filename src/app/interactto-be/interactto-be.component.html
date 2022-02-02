@@ -1,0 +1,23 @@
+<table class="table border border-dark" >
+    <tr>
+        <th>sl.no</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let product of products;index as i">
+        <td>{{i+1}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productBrand}}</td>
+        <td>{{product.price}}</td>
+    </tr>
+    </table>
+    <input type="text" placeholder="enter Id" [(ngModel)]="id"><br>
+    <input type="text" placeholder="enter Name" [(ngModel)]="name"><br>
+    <input type="text" placeholder="enter Brand" [(ngModel)]="brand"><br>
+    <input type="text" placeholder="enter Price" [(ngModel)]="price"><br>
+    <button (click)="addProduct()">AddProduct</button><br>
+    <button (click)="updateProduct()">updateProduct</button>
+
+    <button (click)="deleteProduct()">deleteProduct</button>
+    

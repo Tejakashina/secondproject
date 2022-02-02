@@ -1,0 +1,45 @@
+<div class="col-md-4 offset-md-4">
+    <h1><u>Reactive-Form</u></h1>
+    <br>
+    <form [formGroup]="signInForm" (ngSubmit)="onFormSubmit()">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="Email" name="emailField">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control"
+                [ngClass]="{'errorClass':f.password.errors && f.password.touched}" id="password"
+                formControlName="password" name="passwordField">
+        </div>
+        <div *ngIf="f.password.invalid && f.password.touched">
+            <div class="text-danger" *ngIf=f.password.errors.required>
+                This field is required
+            </div>
+            <div class="text-danger" *ngIf="f.password.errors.minlength || f.password.errors.maxlength">
+                Minlength should be 5 and Maxlen be 10
+            </div>
+        </div>
+        <div formGroupName="Skills">
+            <label for="skill" class="form-label">skill:</label>
+            <input type="text" formControlName="skill" class="ms-2 me-3">
+            <input type="number" placeholder="Yoe" formControlName="Yoe"><br>
+            <label for="levelCheck">skillLevel:</label>
+            <select id="levelCheck" name="level" class="ms-2" formControlName="levelCheck">
+                <option value="">--select--</option>
+                <option value="Begginer">Begginer</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </div>
+        <div formArrayName="hobbies">
+            <div>
+                <button class="btn btn-warning" (click)="addHobby()">Add</button>
+            </div>
+            <div *ngFor="let hobby of hobbyControls; index as i">
+                <input type="text" class="form-control mt-2 mb-2" [formControlName]="i">
+            </div>
+        </div>
+        <button type="submit" [disabled]="signInForm.invalid" class="btn btn-primary">login</button>
+    </form>
+</div>

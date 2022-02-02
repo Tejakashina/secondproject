@@ -1,0 +1,43 @@
+<div class="col-md-4 offset-md-4">
+    <h1><u>Template-Form</u></h1>
+    <br>
+<form #loginForm = "ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" required minlength="5" 
+      id="email" ngModel name="emailField" #emailField="ngModel">
+      <div *ngIf = "emailField.touched && emailField.invalid"
+       class="text-danger">Thisfield is manadatory </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control"  id="password" required
+      ngModel name="passwordField" #passwordField="ngModel">
+    </div>
+    <div *ngIf="passwordField.touched && passwordField.invalid" class="text-danger">This field is manadatory</div>
+    <div class="mb-3">
+      <label for="radiobutton" class="form-label">Gender:</label><br>
+      <input type="radio" class="form-check-input"  name="Gender" value="m" required
+      ngModel #Gender="ngModel" >Male<br>
+      <input type="radio" class="form-check-input"  name="Gender" value="f" required
+      ngModel #Gender="ngModel" >Female<br>
+      <input type="radio" class="form-check-input"  name="Gender" value="o" required
+      ngModel #Gender="ngModel" >Others<br>
+    </div>
+    <div *ngIf="Gender.touched && Gender.invalid" class="text-danger">This field is manadatory</div>
+  
+    <div class="mb-3">
+      <label for="language" class="form-label">Languages</label><br>
+      <input type="checkbox" class="form-check-input"  name="Languages"  required
+      ngModel >English<br>
+      <input type="checkbox" class="form-check-input"  name="Languages"  required
+      ngModel  >Telugu<br>
+      <input type="checkbox" class="form-check-input"  name="Languages"  required
+      ngModel  #Languages="ngModel">Hindi<br>
+    </div>
+    <div *ngIf="Languages.invalid" class="text-danger">This field is manadatory</div>
+    <label for="description" class="form-label">Description:</label><br>
+       <textarea name="" id="" cols="10" rows="1"></textarea>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

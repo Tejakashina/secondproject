@@ -1,0 +1,22 @@
+{
+  "package": [
+    {
+      "id": 1,
+      "productName": "Watch",
+      "productBrand": "Fossil",
+      "price": 13000
+    },
+    {
+      "id": "5",
+      "productName": "perfume",
+      "productBrand": "jasmine",
+      "price": "80"
+    },
+    {
+      "id": "3",
+      "productName": "shoes",
+      "productBrand": "puma",
+      "price": "30000"
+    }
+  ]
+}

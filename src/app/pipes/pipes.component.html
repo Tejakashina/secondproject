@@ -1,0 +1,18 @@
+<input type="text"
+class="form-control mb-3 mt-2 border border-dark"
+placeholder="search by names" [(ngModel)]="searchItem">
+<table class="table border border-dark" >
+    <tr>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Dob</th>
+        <th>Designation</th>
+    </tr>
+    <tr *ngFor="let data of empData | employee:searchItem">
+        <td>{{data.empName}}</td>
+        <td>{{data.empSal}}</td>
+        <td>{{data.DOB}}</td>
+        <td>{{data.Designation}}</td>
+    </tr>
+</table>
+
